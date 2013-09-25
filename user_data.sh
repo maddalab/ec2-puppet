@@ -32,4 +32,4 @@ chmod +x /etc/puppet/node_terminus.py
 /etc/puppet/node_terminus.py `hostname`
 
 # run puppet to apply the required configuration
-/usr/bin/pemuppet apply /etc/puppet/environments/production/manifests/site.pp
+/usr/bin/puppet apply /etc/puppet/environments/production/manifests/site.pp
