@@ -6,7 +6,7 @@
 #
 class daemon {
   package { 'daemon':
-    provider => 'rpm'
+    provider => 'rpm',
     ensure => installed,
     source => "http://libslack.org/daemon/download/daemon-0.6.4-1.${::architecture}.rpm"
   }
