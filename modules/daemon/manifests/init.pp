@@ -2,12 +2,12 @@
 #
 # This module installs the daemon package
 #
-# Fetch rpms for additional architectures from 
-# http://www.libslack.org/daemon/
+# Using the source built rpms from http://www.libslack.org/daemon/
 #
 class daemon {
-  package { "daemon":
+  package { 'daemon':
+    provider => 'rpm'
     ensure => installed,
-    source => "puppet:///daemon/files/daemon-0.6.4-1.${::architecture}.rpm"
+    source => "http://libslack.org/daemon/download/daemon-0.6.4-1.${::architecture}.rpm"
   }
 }

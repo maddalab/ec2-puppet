@@ -3,6 +3,7 @@ class firegazernode {
 
   include java
   include ruby
+  include daemon
 
   # install capistrano for firegazer deployments
   package { 'capistrano':
