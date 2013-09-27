@@ -20,7 +20,7 @@ class firegazernode {
 
   # create a cron job for puppet runs
   cron { puppet-run:
-    command => "/usr/bin/puppet apply /etc/puppet/environments/production/manifests/site.pp",
+    command => "/usr/bin/puppet apply /etc/puppet/environments/production/manifests/site.pp -l /var/log/puppet/puppet.log --debug",
     user    => root,
     minute  => '*/10'
   }
