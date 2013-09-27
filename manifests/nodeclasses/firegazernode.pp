@@ -5,11 +5,28 @@ class firegazernode {
   include ruby
   include daemon
 
+  # install logrotate package
+  package { "logrotate.x86_64":
+    ensure => latest;
+  }
+
+  # defaults on logrotate for redhat
+  include logrotate::base 
+
+  # set up log rotate for firegazer
+  logrotate::rule { 'firegazer':
+    path         => '/var/log/parmesan-http-health/*',
+    dateext      => true,
+    compress     => true,
+    rotate       => 5,
+    rotate_every => 'day'
+  } 
+
   # install capistrano for firegazer deployments
   package { 'capistrano':
-    ensure => present,
+    ensure   => present,
     provider => 'gem',
-    require => Package['rubygems'],
+    require  => Package['rubygems'],
   }
 
   # create a cron job for puppet git pulls
