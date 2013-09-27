@@ -10,4 +10,18 @@ class firegazernode {
     provider => 'gem',
     require => Package['rubygems'],
   }
+
+  # create a cron job for puppet git pulls
+  cron { puppet:
+    command => "cd /etc/puppet && git reset --hard && git pull",
+    user    => root,
+    minute  => '*/10'
+  }
+
+  # create a cron job for puppet runs
+  cron { puppet-run:
+    command => "/usr/bin/puppet apply /etc/puppet/environments/production/manifests/site.pp",
+    user    => root,
+    minute  => '*/10'
+  }
 }
