@@ -1,5 +1,8 @@
 #!/bin/sh
 
+# write out a file to specify datacenter
+echo "ec2" > /var/db/datacenter
+
 # update the distribution to the latest 
 yum update --assumeyes
 
