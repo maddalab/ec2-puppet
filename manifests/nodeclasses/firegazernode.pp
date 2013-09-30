@@ -17,6 +17,7 @@ class firegazernode {
   logrotate::rule { 'firegazer':
     path         => '/var/log/parmesan-http-health/*',
     compress     => true,
+    size         => '6G',
     rotate       => 5,
     rotate_every => 'hour'
   } 
