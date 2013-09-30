@@ -16,10 +16,9 @@ class firegazernode {
   # set up log rotate for firegazer
   logrotate::rule { 'firegazer':
     path         => '/var/log/parmesan-http-health/*',
-    dateext      => true,
     compress     => true,
     rotate       => 5,
-    rotate_every => 'day'
+    rotate_every => 'hour'
   } 
 
   # install capistrano for firegazer deployments
